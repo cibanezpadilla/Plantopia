@@ -1,0 +1,59 @@
+.menu__backdrop {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .15s .1s;
+
+    .menulist {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        height: 100%;
+        position: absolute;
+        width: 170px;
+        left: -400px;
+        padding: 20px;
+        padding-top: 2rem;
+        transition: right .15s ease-in-out;
+        background-color: white;
+
+        .menulist__link {            
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .menulist_close_icon{
+            font-size: 1.5rem;
+            /* margin-left: auto; */
+        }
+
+    }
+}
+
+.menu_icon{
+    font-size: 1.5rem;
+}
+
+.menu-active {
+    .menu__backdrop {
+        visibility: visible;
+        opacity: 1;
+        transition: all .15s;
+
+        .menulist {
+            left: 0px;
+            transition: left .15s ease-in-out .1s;
+        }
+            
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .menu{
+        display: none;
+    }
+    
+
+}

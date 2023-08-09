@@ -1,0 +1,134 @@
+
+
+.contacto{
+    margin: 0 auto;
+    margin-top: 6rem;
+    
+}
+
+
+.titulo_section{
+    margin-top: 3rem;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.contacto__section {    
+    padding: 60px 0;
+    margin: 0 auto;      
+}
+
+.divderecho {
+    width: fit-content;
+    margin: 0 auto;    
+}
+
+.contact__information{
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+
+.contact__title{    
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.contact__subtitle {
+    font-size: 1rem;
+}
+
+
+.icon{
+    margin-top: 7px;
+    margin-right: 5px;
+}
+
+
+/* formu */
+.contact-form{    
+    margin-top: 60px;
+    padding-inline: 40px;
+    display: grid;
+    gap: 1rem;
+}
+
+.contact__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact__content{
+    background-color: rgb(248, 248, 248);
+    border-radius: .5rem;
+    padding: 0.75rem 1rem .25rem;
+    
+}
+.contact__label{
+    font-size: 1rem;
+    color: rgb(55, 52, 53)
+}
+.contact__input{
+    width: 100%;
+    background-color: rgb(248, 248, 248);
+    color: black;
+    border-radius: .5rem;    
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    padding: 0.25rem 0.5rem 0.5rem 0;
+}
+
+
+/* fin de formu */
+
+.button--send {
+    padding: 10px 20px;
+    color: white;
+    border: none;    
+    background-color: rgb(209, 176, 157);  
+    font-size: 1rem;    
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+
+
+@media screen and (min-width: 768px) { 
+    .contacto__section {
+        display: grid;
+        width: 600px;
+        grid-template-columns: 1fr 1fr;
+        padding: 60px 0;
+        /* gap: 1rem;  */       
+    }
+
+    .divderecho {
+        width: 100%;
+        margin: 0 auto;        
+    }
+
+    .contact__inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .contact-form{
+        width: 400px;
+        margin-top: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) { 
+    .contacto__section {
+        display: grid;
+        width: 768px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 60px 0;        
+        margin-bottom: 30px;
+    }
+}

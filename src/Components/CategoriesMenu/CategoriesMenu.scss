@@ -1,0 +1,30 @@
+.div_cat_menu{
+    padding-top: 4rem;
+    padding-bottom: 1rem;    
+    margin-bottom: 1.5rem;
+}
+
+.cat_menu_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 1.2rem;
+}
+
+/* .category_list_block{
+    display: block;
+} */
+
+.block{
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+
+}
+
+@media screen and (min-width: 768px) {
+    .div_cat_menu{
+        display: none;
+    }
+}

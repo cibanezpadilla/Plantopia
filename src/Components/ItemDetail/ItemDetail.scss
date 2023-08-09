@@ -1,0 +1,130 @@
+
+
+
+
+
+
+
+
+
+.detail_card {
+    margin: 0 auto;    
+}
+
+
+.detail_titulo{
+    font-size: 1.5rem;
+}
+
+.imgDetail{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.detail_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    padding-inline: 1.5rem;
+    gap: 2rem;
+    text-align: center;
+}
+
+.detail_price{
+    font-size: 1.2rem;
+}
+
+/* .item_count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.add {    
+    padding: 8px 20px;
+    color: black;
+    border: none;    
+    background-color: rgb(209, 176, 157);
+    color: white;
+    font-size: 1rem;    
+    font-weight: 600;
+    margin: 0 auto;
+    margin-inline: 10px;    
+    border-radius: 5px;
+    cursor: pointer;    
+}
+
+.addToCart{    
+    display: flex;
+    justify-self: center;
+    padding: 10px 20px;
+    color: black;
+    border: none;    
+    background-color: rgb(209, 176, 157);
+    color: white;
+    font-size: 1rem;    
+    margin: 0 auto;
+    margin-top: 15px;    
+    border-radius: 5px;
+    cursor: pointer;  
+}
+
+/* .buttons_section{
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+} */
+
+.botonera{
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    
+    padding: 10px 20px;
+    color: black;
+    border: none;    
+    background-color: rgb(209, 176, 157);
+    color: white;
+    font-size: 1rem;    
+    margin: 0 auto;
+    /* margin-top: 800px; */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+@media screen and (min-width: 768px) {
+    .imgDetail{
+        width: 500px;  
+        padding: 0;      
+    }
+
+    .detail_info {        
+        padding-inline: 8rem;
+    }
+}
+
+
+
+@media screen and (min-width: 1024px) {
+    .detail_card {     
+        display:grid;
+        grid-template-columns: 1fr 1fr;   
+        width: 850px;        
+    }
+
+    .imgDetail{
+        width: 350px;        
+    }
+
+    .detail_info {
+        padding: 2rem;
+    }
+}

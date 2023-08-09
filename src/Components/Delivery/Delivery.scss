@@ -1,0 +1,47 @@
+
+.delivery_banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(107, 102, 99);
+    height: 400px;
+    padding-inline: 2rem;
+}
+
+.delivery_ilustration {
+    width: 120px;
+}
+
+.delivery_text{
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 768px) {
+    .delivery_banner{        
+        flex-direction: row;        
+        gap: 1rem;
+        padding: 4rem;        
+        height: 225px;        
+    }
+
+    .delivery_ilustration {
+        width: 125px;
+    }
+
+    .delivery_text{
+        font-size: 2rem;         
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .delivery_banner{        
+        gap: 3rem;
+    }
+}
+
+/* background-color: rgb(209, 176, 157); */

@@ -1,0 +1,106 @@
+
+
+.mg_menu__backdrop {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .15s .1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .mg_menulist {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        height: 200px;
+        position: absolute;
+        width: 80%;        
+        top: -400px;
+        padding: 20px;        
+        transition: top .15s ease-in-out;
+        background-color: white;
+        z-index: 1;
+
+
+        .mg_row{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+
+        .mg_search{
+            width: 200px;
+            display: flex;
+        }
+
+        .mg_menulist_close_icon{
+            font-size: 1.5rem;
+            /* margin-left: auto; */
+        }
+        
+        .mg_menulist__link {            
+            padding: 5px 5px;            
+            border: none;    
+            background-color: black;
+            color: white;
+            font-size: 2rem;            
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+}
+
+.magnifying-glass_icon_menu{    
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+
+
+.mg_menu-active {
+    .mg_menu__backdrop {
+        visibility: visible;
+        opacity: 1;
+        transition: all .15s;
+
+        .mg_menulist {
+            top: 150px;
+            transition: top .15s ease-in-out .1s;
+        }            
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mg_menu-active {
+        .mg_menu__backdrop {            
+            .mg_menulist {
+                top: 200px;
+                transition: top .15s ease-in-out .1s;
+
+                .mg_search{
+                    width: 350px;        
+                }
+
+            }                
+        }
+    }
+    
+    
+}
+
+
+/* *********************************************************** */
+@media screen and (min-width: 1024px) {
+    .mg_menu{
+        display: none;
+    }
+    
+
+}

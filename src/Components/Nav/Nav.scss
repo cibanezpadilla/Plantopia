@@ -1,0 +1,31 @@
+
+.nav {
+    display: none;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+.nav {
+    display: flex;
+    align-items: center;    
+    gap: 60px;
+
+    .nav__items {
+        display: flex;
+        gap: 30px;
+        text-decoration: none;
+
+        .nav__item {
+            color: black;    
+            list-style-type: none;
+            text-decoration: none;
+            font-size: 1.1rem;
+
+            
+        }
+        
+    }    
+}
+}

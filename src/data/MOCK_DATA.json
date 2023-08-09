@@ -1,0 +1,393 @@
+[
+    {
+        "id": 1,
+        "nombre": "sansevieria trifasciata",
+        "category": "indoor",
+        "descripcion": "It doesn't need much water. Give it a drink when her soil feels dry, about every few weeks. Less in winter. \n It’ll thrive in almost all light conditions (though not a windowless room). More is better, but anything is fine. \n Every now and again - just whenever you remember - give it leaves a light wipe to keep its pores free of dust. \n Plant height (including pot): 90cm",
+        "precio": 20,
+        "img": "../../sansevieriaTrifasciata.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "elastic ficus",
+        "category": "indoor",
+        "descripcion": "Water it whenever the top two inches of soil are dry. It needs a lot less water in winter than in summer. \n It loves a bright room but it’s not partial to direct sun, so if your room is very sunny, place it away from the window. \n Its leaves can absorb a lot of moisture, so spraying it with a mister every few days will encourage healthy growth. \n Plant height (including pot): 70cm",
+        "precio": 12,
+        "img": "../../ficusElastica.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "monstera adansonii",
+        "category": "indoor",
+        "descripcion": "It’s not very demanding. Check it weekly and if the top two inches of its soil feel dry, give it a drink. \n It’ll be fine in anything from light shade to bright, indirect light. It grows faster in good light. Keep its leaves moist and it’ll be a happy boy. \n Put it in a bright bathroom or mist it every few days. \n Plant height (including pot): 40cm",
+        "precio": 17,
+        "img": "../../monsteraAndasonii.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "peperomia watermelon",
+        "category": "indoor",
+        "descripcion": "Give this Peperomia a light, but not too sunny spot in the house, otherwise the leaves may discolor. \n Give a little water once a week and let the clod between the watering dry up lightly before watering again. \n Do not pour on the core of the plant, because then the plant may rot. \n Plant height (including pot): 40cm",
+        "precio": 15,
+        "img": "../../peperomiaWatermelon.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "aphelandra",
+        "category": "indoor",
+        "descripcion": "Give her a spot with bright indirect light and a humidity of 60 to 70%. \n She prefers to have moist soil at all times, this is best provided by giving regular splashes of water. \n As a soil mix, she likes to have it well draining, but also something that holds water well. \n She tends to need a lot of nutrients during the growing season.\n Plant height (including pot): 40cm",
+        "precio": 18,
+        "img": "../../aphelandra2.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "monstera deliciosa",
+        "category": "indoor",
+        "descripcion": "Plant that adapts to interiors of great indirect luminosity. \n Ideal for collectors and lovers of exotic plants. \n Moderate watering, leaving the substrate dry. \n To spray in case of dry environments.<br> <br>Pot size: 16/18cm diameter.",
+        "precio": 91,
+        "img": "../../monsteraDeliciosa.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "calathea setosa",
+        "category": "indoor",
+        "descripcion": "They likes their soil moist, but not soggy. You can water them when the top two inches of soil feel dry. \n They’ll manage in light shade, but they really love a bright spot. Keep them away from direct sunlight, it will burn their delicate leaves. \n Mist them every few days to avoid crispy leaf tips, or pop them in a naturally humid room - like a bathroom. \n Plant height (including pot): 70-80cm",
+        "precio": 28,
+        "img": "../../calatheaSetosa.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "nombre": "senecio rowleyanus",
+        "category": "cactiesSucculents",
+        "descripcion": "It is known as string of pearls, is a succulent houseplant that requires very little care. \n It does not tolerate direct sunlight but it does tolerate spaces with bright light several hours a day. \n Watering should be moderate, allowing the substrate to dry completely before watering again. \n Plant height (including pot): 30cm",
+        "precio": 15,
+        "img": "../../senecioRowleyanus.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "nombre": "jade tree",
+        "category": "cactiesSucculents",
+        "descripcion": "Jade plants likes bright light and some direct sun.As a succulent this plant isn’t too high-maintenance, however you do need to take care when watering. \n Overwatering is one of the main causes of failure for jade plants, so water once thoroughly and then let the soil dry out completely before watering again. \n Plant height (including pot): 20cm",
+        "precio": 10,
+        "img": "../../jadeTree.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "nombre": "cactus spirali",
+        "category": "cactiesSucculents",
+        "descripcion": "The spiral cactus is one of the most beautiful and exotic cacti that we can find. It likes to receive some direct sun and watering when the soil is dry. \n They are very easy to care for and super resistant to pests. \n Coarse sand with good drainage will be perfect and a commercial cactus substrate will be enough to make it happy. \n Plant height (including pot): 50cm",
+        "precio": 35,
+        "img": "../../cactusSpirali.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "nombre": "cactus",
+        "category": "cactiesSucculents",
+        "descripcion": "A cinematic classic reminiscent of the wild, wild west, the cactus is one of nature’s most striking plants. \n One of the things that makes the cactus so enduringly popular as a houseplant is its easy-going nature. \n Having originated in the desert, it’s used to dry spells and sun, so water only when the soil is completely dry and keep in a bright, sunny spot. \n Plant height (including pot): 25cm",
+        "precio": 35,
+        "img": "../../cactusP.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "nombre": "hedera helix",
+        "category": "outdoor",
+        "descripcion": "She likes her soil gently moist, but not soggy. Water her when her top two inches of soil are dry. She could not be more easygoing when it comes to light. \n She’ll cope in almost anything but loves bright, indirect light. \n She’s used to lots of rain - well, she is English - so she likes a moist atmosphere. \n Mist her every couple of days. \n Plant height (including pot): 20-30cm",
+        "precio": 25,
+        "img": "../../hederaHelix.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "nombre": "yucca",
+        "category": "outdoor",
+        "descripcion": "If you want to feel a little bit in the jungle without leaving your house or apartment, the Yucca is the plant for you. \n Tall and elegant, it has hard, pointed leaves that emerge from the trunk, resembling a small palm tree. \n Water when the substrate is dry to the touch and avoid puddling. It can be grown outdoors or indoors, as long as it has good light. \n Plant height (including pot): 150cm",
+        "precio": 65,
+        "img": "../../yucca2.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "nombre": "laurus nobilis",
+        "category": "outdoor",
+        "descripcion": "She’ll do very well in a sunny position but she’ll also tolerate some shade for part of the day. \n She likes her soil gently moist. She’ll cope with a bit of forgetful watering but doesn’t like to dry out entirely. \n Help her grow strong and healthy by giving her a feed with some liquid fertiliser once per month in spring and summer. \n Plant height (including pot): 20-30cm",
+        "precio": 80,
+        "img": "../../laurusNobilis.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "nombre": "lemon tree",
+        "category": "outdoor",
+        "descripcion": "This plant likes lots of sun, so put her in the brightest spot available. \n She likes slightly moist soil, so water her if the top two inches of soil are dry. She'll be thirstier in summer than winter. \n You can encourage her to grow more fruit by feeding her with citrus food once per month in spring and summer. \n Plant height (including pot): 70-80cm",
+        "precio": 55,
+        "img": "../../lemonTree.jpg",
+        "stock": 10,
+        "tamanios": [
+            {
+                "value": "S",
+                "multiplier": 1,
+                "stock": 8
+            },
+            {
+                "value": "M",
+                "multiplier": 1.3,
+                "stock": 5
+            },
+            {
+                "value": "L",
+                "multiplier": 2,
+                "stock": 2
+            }
+        ]
+    }
+    
+]

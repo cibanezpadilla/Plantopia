@@ -1,0 +1,85 @@
+.header {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 20px;     
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    padding-inline: 1.5rem;          
+}
+
+
+.logo {
+    display: grid;
+    justify-content: center;        
+    align-items: center;
+    font-size: 1.8rem;
+}
+
+.icons_container{
+    display:flex;
+    gap: 0.7rem;     
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.user_icon {
+    margin-top: 10px;
+    width: 23px;
+}
+
+.magnifying-glass{
+    display: none;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+
+
+.search{
+    display: none;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .header{
+        padding-inline: 4rem;
+    }
+
+    .icons_container{
+        gap: 1.7rem;        
+    }
+}
+
+
+
+@media screen and (min-width: 1024px) {
+    .magnifying-glass{
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+
+    .magnifying-glass_icon{
+        display: flex;
+        font-size: 1.5rem;
+        cursor: default;
+    }
+
+    .search{
+        width: 200px;
+        display: flex;
+    }
+}
+

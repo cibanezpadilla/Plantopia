@@ -1,0 +1,59 @@
+
+.tarjetita {
+    /* width: 300px;
+    overflow: hidden;
+    border: solid 1px rgb(163, 163, 163);
+    border-radius: 15px;   */
+    text-align: center;  
+    margin-bottom: 50px;
+    padding: 1.5rem;
+    
+}
+
+.contenedor-img-out{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgProd {
+    width: 300px;
+    position: relative;
+}
+
+.out-of-stock_bg{
+    position: absolute;
+    width: 100%;
+    /* bottom: 150px; */
+    height: 100%;
+    background-color: rgb(255, 255, 255, 0.65);
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.out-of-stock_title{
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+}
+
+.more_details {
+    
+    padding: 10px 20px;
+    color: black;
+    border: none;    
+    background-color: rgb(209, 176, 157);
+    color: white;
+    font-size: 1rem;    
+    margin: 0 auto;
+    /* margin-top: 800px; */
+    border-radius: 5px;
+    cursor: pointer;
+}
