@@ -8,7 +8,7 @@ const LoginScreen = () => {
     const { login, googleLogin } = useContext(AuthContext)
 
 
-    const navigate = useNavigate();
+    /* const navigate = useNavigate(); */
 
     const [values, setValues] = useState({
         email: '',
@@ -25,7 +25,7 @@ const LoginScreen = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await login(values)
-        navigate("/");
+        /* navigate("/"); */
     }
 
     return (

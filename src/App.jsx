@@ -23,9 +23,9 @@ import WishView from "./Components/WishView/WishView";
 import CartView from "./Components/CartView/CartView";
 import { SearchProvider } from './context/SearchContext'
 import Checkout from "./Components/Checkout/Checkout";
-import { ProductNotFound } from './Components/ProductNotFound/ProductNotFound'
+/* import { ProductNotFound } from './Components/ProductNotFound/ProductNotFound' */
 import { WishProvider } from './context/WishContext'
-import { AuthContextProvider } from "./context/AuthContext"
+/* import { AuthContextProvider } from "./context/AuthContext" */
 import LoginScreen from "./Components/Auth/LoginScreen"
 import { useContext } from "react"
 import { AuthContext } from "./context/AuthContext"

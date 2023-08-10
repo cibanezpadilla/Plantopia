@@ -36,6 +36,7 @@ export const Header = () => {
           <Link className="" to="/wish"><AiOutlineHeart/></Link>          
           <Link className="buttonss" to="/cart"><CartWidget/></Link>
           <p>Bienvenido: {user.email}</p>
+          <button className='btn btn-danger' onClick={logout}>Logout</button>
         </div>                   
     </header>
   )

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const RegisterScreen = () => {
     const { register } = useContext(AuthContext)
-    const navigate = useNavigate();
+    /* const navigate = useNavigate(); */
 
     const [values, setValues] = useState({
         email: '',
@@ -23,7 +23,7 @@ const RegisterScreen = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         register(values)
-        navigate("/");
+        /* navigate("/"); */
     }
 
     return (
