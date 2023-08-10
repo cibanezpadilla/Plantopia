@@ -2,9 +2,11 @@ import { useContext, useState } from 'react'
 import './LoginScreen.scss'
 import { AuthContext } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const RegisterScreen = () => {
     const { register } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const [values, setValues] = useState({
         email: '',
@@ -21,6 +23,7 @@ const RegisterScreen = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         register(values)
+        navigate("/");
     }
 
     return (

@@ -1,10 +1,14 @@
 import { useContext, useState } from 'react'
 import './LoginScreen.scss'
 import { AuthContext } from '../../context/AuthContext'
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 
 const LoginScreen = () => {
     const { login, googleLogin } = useContext(AuthContext)
+
+
+    const navigate = useNavigate();
 
     const [values, setValues] = useState({
         email: '',
@@ -18,9 +22,10 @@ const LoginScreen = () => {
         })
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        login(values)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await login(values)
+        navigate("/");
     }
 
     return (

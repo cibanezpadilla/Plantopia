@@ -11,9 +11,12 @@ import MGlassMenu from '../MGlassMenu/MGlassMenu';
 import { SearchContext } from '../../context/SearchContext';
 import { useContext } from "react"
 
+import { AuthContext } from '../../context/AuthContext'
+
 
 export const Header = () => {
   const { busqueda, setBusqueda, handleKeyDown } = useContext(SearchContext)
+  const { user, logout } = useContext(AuthContext)
 
   return (
     <header className='header' >
@@ -32,6 +35,7 @@ export const Header = () => {
           </div>          
           <Link className="" to="/wish"><AiOutlineHeart/></Link>          
           <Link className="buttonss" to="/cart"><CartWidget/></Link>
+          <p>Bienvenido: {user.email}</p>
         </div>                   
     </header>
   )

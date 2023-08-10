@@ -11,9 +11,12 @@ export const AuthContextProvider = ({children}) => {
         email: null
     })
 
-    const login = (values) => {
-        signInWithEmailAndPassword(auth, values.email, values.password)
-            .catch(e => console.log(e))
+    const login = async (values) => {
+        try{
+            await signInWithEmailAndPassword(auth, values.email, values.password)
+        }catch(e){
+            console.log(e)
+        }
     }
 
     const register = (values) => {

@@ -35,6 +35,8 @@ function App() {
 
   const { user } = useContext(AuthContext)
   
+  console.log('user.logged',user.logged);
+
   return (
     <div>
 
@@ -92,8 +94,9 @@ function App() {
                           <Why/>
                           
                         </div>
-                    }/>          
-                    <Route path="/*" element={ <PageNotFound/> }/>          
+                    }/>
+                    <Route path="/login" element={<Navigate to="/"/>}/>
+                    <Route path="/*" element={ <PageNotFound/> }/>
                   </Routes>
                   <Footer/>  
                 </SearchProvider>
