@@ -29,7 +29,7 @@ import { AuthContextProvider } from "./context/AuthContext"
 import LoginScreen from "./Components/Auth/LoginScreen"
 import { useContext } from "react"
 import { AuthContext } from "./context/AuthContext"
-import RegisterScreen from "./components/Auth/RegisterScreen"
+import RegisterScreen from "./Components/Auth/RegisterScreen"
 
 
 function App() {
