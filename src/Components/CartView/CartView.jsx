@@ -22,29 +22,30 @@ const CartView = () => {
 
 
     return (
-        <div className="">
-            <h2 className="text-4xl">Your Cart</h2>
+        <div className="cart_section">
+            <h2 className="cart_title">MY CART</h2>
             <hr/>
-            <div>
+            <div className="cart_container">
                 {cart.map((item) => (
-                        <div className="cart_card" key={item.id + item.tamanioSeleccionado}>
-                            <h3 className="cart-card_title">{toCapital(item.nombre)}</h3>
+                        <div className="cart_card" key={item.id + item.tamanioSeleccionado}>                            
                             <img className="cart_img" src={item.img} alt={item.nombre}/>
-                            <p><strong>Size: {item.tamanioSeleccionado}</strong></p>
+                            <h3 className="cart-card_title">{toCapital(item.nombre)}</h3>
+                            <p>Size: {item.tamanioSeleccionado}</p>
                             <p>Price: ${item.precioFinal}</p>
                             <p>Quantity: {item.cantidad}</p>
                             <p>Subtotal: ${item.precioFinal * item.cantidad}</p>
-                            <button onClick={() => removerDelCarrito(item.id, item.tamanioSeleccionado)} className="btn btn-danger"><FaTrashAlt/></button>
-                            <hr/>                            
+                            <button onClick={() => removerDelCarrito(item.id, item.tamanioSeleccionado)} className="remove">Remove</button>                                                   
                         </div>
                     ))            
                 }
             </div>
-            
-            <div>
-                <h4 className="text-3xl my-2">Total: ${totalCompra()}</h4>
-                <button onClick={vaciarCarrito} className="btn btn-danger">Clear Cart</button>
-                <Link className="btn btn-success mx-2" to="/checkout">Finish my purchase</Link>
+            <hr />
+            <div className="cart_footer">
+                <h4 className="cart_total">Total Cart: ${totalCompra()}</h4>
+                <div className="cart_footer_buttons">
+                    <button onClick={vaciarCarrito} className="clear">Clear Cart</button>
+                    <Link className="cart_footer_button_finish" to="/checkout">Buy</Link>
+                </div>                
             </div>               
         </div>
     )

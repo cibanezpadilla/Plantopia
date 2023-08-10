@@ -63,7 +63,7 @@ const WishCard = ({item}) => {
             <div className="wish_card" key={item.id}>
                 <h3 className="wish-card_title">{toCapital(item.nombre)}</h3>
                 <img className="wish_img" src={item.img} alt={item.nombre}/>
-                <button onClick={() => removeFromWish(item.id)} className="btn btn-danger"><FaTrashAlt/></button>                            
+                <button onClick={() => removeFromWish(item.id)} className="remove">Remove</button>                            
                 <p>Price: ${item.precioFinal}</p>
                 <SelectTamanio options={item.tamanios} setTamanio={setTamanio} setMultiplier={setMultiplier} setStock={setStock}/>                            
                 {
