@@ -33,10 +33,10 @@ export const Header = () => {
         onKeyDown={handleKeyDown} type="text" className="w-full bg-transparent focus:outline-none px-2" placeholder="Search" id="buscar"/>
               </div>
           </div>          
-          <Link className="" to="/wish"><AiOutlineHeart/></Link>          
+          <Link className="" to="/wish"><AiOutlineHeart className='wishlist_icon'/></Link>          
           <Link className="buttonss" to="/cart"><CartWidget/></Link>
-          <p>Bienvenido: {user.email}</p>
-          <button className='btn btn-danger' onClick={logout}>Logout</button>
+          {/* <p>Bienvenido: {user.email}</p>
+          <button className='btn btn-danger' onClick={logout}>Logout</button> */}
         </div>                   
     </header>
   )

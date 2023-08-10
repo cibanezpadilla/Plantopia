@@ -49,6 +49,10 @@
     display: none;
 }
 
+.wishlist_icon{
+    font-size: 1.7rem;
+    cursor: pointer;
+}
 
 
 @media screen and (min-width: 768px) {
@@ -77,6 +81,7 @@
         cursor: default;
     }
 
+    
     .search{
         width: 200px;
         display: flex;
