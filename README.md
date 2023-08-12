@@ -10,13 +10,13 @@ Si no hay más stock de determinado tamaño, sale un mensaje que sugiere chequea
 Este mismo sistema de mensajes se visualiza en la pantalla de wishlist.
 
 
+Cuando un producto es agregado al carrito, tanto desde la Wishlist como desde la vista de ItemDetail, se dispara una alerta que notifica que el producto ha sido agregado.
+
 
 Cuando un producto está fuera de stock en Firebase, en el ItemList se ve un mensaje sobre la foto que avisa que el profucto está fuera de stock.
 
 
 Cuando se ingresa una ruta no existente, se llega a una pantalla de Page not found, con un botón para volver al Home.
-
-
 Cuando se ingresa una ruta de detalle de producto no existente, se llega a una pantalla de Product not found, con un botón para volver al Home.
 
 
@@ -35,6 +35,9 @@ Al hacer click en el botón de ClearCart, se visualiza una alerta que pregunta s
 
 
 En el formulario de checkout, incluí el campo teléfono, configurando un schema de valicación para que sólo admita caracteres numéricos. 
+
+
+Si el usuario está ya en el checkout y un producto se ha quedado sin stock, al enviar el formulario se dispara una alerta que notifica que hay items sin stock.
 
 
 Al enviar los datos y crearse la orden exitosamente, se dispara una alerta que agradece por la compra, citando el nombre del usuario, y confirmando que se comunicarán via mail, citando el mail del usuario.
