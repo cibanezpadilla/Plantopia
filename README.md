@@ -3,9 +3,9 @@
 
 
 ## Funcionalidades adicionales del proyecto
-Cada producto tiene un selector de tamaño, y cada tamaño tiene un precio y un stock determinado.
+Cada producto tiene un selector de tamaño, y cada tamaño tiene un precio y un stock determinado, por lo tanto, es posible agregar al carrito el mismo producto en distinto tamaño.
 Es posible agregar un item al carrito, y luego seguir agregando más cantidad del mismo (no coloqué el botón de terminar compra una vez que se agregó el item al carrito).
-Cuando un producto está agregado al carrito en determinado talle, hay un mensaje que recuerda al usuario la cantidad de items en ese tamaño que ya tiene agregados en carrito. 
+Cuando un producto está agregado al carrito en determinado tamaño, hay un mensaje que recuerda al usuario la cantidad de items en ese tamaño que ya tiene agregados en carrito. 
 Si no hay más stock de determinado tamaño, sale un mensaje que sugiere chequear los demas tamaños, y también sale el mensaje que indica si hay items en el carrito en ese tamaño que ya no tiene stock.
 Este mismo sistema de mensajes se visualiza en la pantalla de wishlist.
 
@@ -31,6 +31,7 @@ En la versión mobile, para acceder a la barra de búsqueda se hace click en el 
 
 
 En el carrito es posible clickear la imagen del producto y volver a la vista de ItemDetail correspondiente. 
+Es posible agregar al carrito el mismo producto en varios tamaños diferentes, por ejemplo, Cactus Spirali en tamaño Small y Cactus Spirali en tamaño Big, y en la vista del carrito es posible eliminar uno solo de estos Catus Spirali, es decir, puedo decidir si quiero eliminar sólo el de tamaño Small o sólo el de tamaño Big.
 Al hacer click en el botón de ClearCart, se visualiza una alerta que pregunta si deseas eliminar la cantidad de items que tenes en el carrito. Al confirmar aparece otra alerta que confirma la cantidad de items que fueron eliminados. 
 
 
