@@ -41,6 +41,9 @@ En el formulario de checkout, incluí el campo teléfono, configurando un schema
 Si el usuario está ya en el checkout y un producto se ha quedado sin stock, al enviar el formulario se dispara una alerta que notifica que hay items sin stock.
 
 
+Al hacer el batch update, se actualiza el stock de productos teniendo en cuenta el stock de cada tamaño.
+
+
 Al enviar los datos y crearse la orden exitosamente, se dispara una alerta que agradece por la compra, citando el nombre del usuario, y confirmando que se comunicarán via mail, citando el mail del usuario.
 
 
