@@ -47,8 +47,11 @@ Al hacer el batch update, se actualiza el stock de productos teniendo en cuenta 
 Al enviar los datos y crearse la orden exitosamente, se dispara una alerta que agradece por la compra, citando el nombre del usuario, y confirmando que se comunicarán via mail, citando el mail del usuario.
 
 
+## Funciones complementarias
+Utilicé una función para mostrar sólo 1 decimal si el valor del precio no es un número entero, y una función para poner en mayúsculas el nombre del producto en los títulos.
 
-## Librerías implementadas
+
+## Librerías complementarias
 En mi proyecto implementé las librerías vistas en clase y ademas SweetAlert y Toastify, para las alertas y notificaciones.
 
 

@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Link } from "react-router-dom"
 import { toCapital } from '../../helpers/toCapital.js'
+import { redondearSiNecesario } from '../../helpers/redondearSiNecesario.js'
 import emptyCart from '../../assets/emptyCart.jpg'
 import './CartView.scss'
 
@@ -41,9 +42,9 @@ const CartView = () => {
                             <Link to={`/detail/${item.id}`}><img className="cart_img" src={item.img} alt={item.nombre}/></Link>
                             <h3 className="cart-card_title">{toCapital(item.nombre)}</h3>
                             <p>Size: {item.tamanioSeleccionado}</p>
-                            <p>Price: ${item.precioFinal}</p>
+                            <p>Price: ${redondearSiNecesario(item.precioFinal)}</p>
                             <p>Quantity: {item.cantidad}</p>
-                            <p>Subtotal: ${item.precioFinal * item.cantidad}</p>
+                            <p>Subtotal: ${redondearSiNecesario(item.precioFinal * item.cantidad)}</p>
                             <button onClick={() => removerDelCarrito(item.id, item.tamanioSeleccionado)} className="remove">Remove</button>                                                   
                         </div>
                     ))            

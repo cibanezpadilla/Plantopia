@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { WishContext } from "../../context/WishContext"
 import { CartContext } from "../../context/CartContext"
 import { toCapital } from '../../helpers/toCapital.js'
+import { redondearSiNecesario } from '../../helpers/redondearSiNecesario.js'
 import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 import SelectTamanio from "../SelectTamanio/SelectTamanio" 
@@ -61,7 +62,7 @@ const WishCard = ({item}) => {
                
 
     useEffect(() => {
-        setPrecio(item.precio * multiplier)
+        setPrecio(redondearSiNecesario( item.precio * multiplier))
         setCantidad(1)        
     },[multiplier])
 

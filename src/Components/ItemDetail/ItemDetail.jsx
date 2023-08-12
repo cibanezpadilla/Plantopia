@@ -4,6 +4,7 @@ import ItemCount from "../ItemCount/ItemCount"
 import { CartContext } from "../../context/CartContext"
 import { WishContext } from "../../context/WishContext"
 import { toCapital } from '../../helpers/toCapital.js'
+import { redondearSiNecesario } from '../../helpers/redondearSiNecesario.js'
 import { parseText } from '../../helpers/parseText.jsx'
 import SelectTamanio from "../SelectTamanio/SelectTamanio"
 import WishRemoveButton from "../WishRemoveButton/WishRemoveButton"
@@ -82,7 +83,7 @@ const ItemDetail = ({item}) => {
 
 
     useEffect(() => {
-        setPrecio(item.precio * multiplier)
+        setPrecio(redondearSiNecesario( item.precio * multiplier))
         setCantidad(1)
     },[multiplier])
 
