@@ -26,7 +26,7 @@ const schema = Yup.object().shape({
                 .required("This field is mandatory"),
     direccion: Yup.string()
                 .min(6, "La direccion es demasiado corta")
-                .max(20, "Maximum 20 characters")
+                .max(30, "Maximum 30 characters")
                 .required("This field is mandatory"),
     email: Yup.string()
                 .required("This field is mandatory")
