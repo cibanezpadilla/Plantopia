@@ -1,11 +1,8 @@
 import { useContext } from "react"
 import { WishContext } from "../../context/WishContext"
-import { FaTrashAlt } from 'react-icons/fa'
 import { Link } from "react-router-dom"
-import { toCapital } from '../../helpers/toCapital.js'
-/* import ItemCount from "../ItemCount/ItemCount"
-import SelectTamanio from "../SelectTamanio/SelectTamanio" */
 import './WishView.scss'
+import empty from '../../assets/empty.jpg'
 import WishCard from "../WishCard/WishCard.jsx"
 
 
@@ -19,29 +16,38 @@ const WishView = () => {
 
     if (wish.length === 0) {
         return (
-            <div className="container my-5">
-                <h2 className="text-4xl">Your wishlist is empty</h2>
+            <div className="wish_section">
+                <h2 className="cart_title">MY WISHLIST</h2>
                 <hr/>
-                <Link to="/" className="btn btn-success">Go Shopping!</Link>
+                <div className="wish_empty_section">
+                    <img className="wish_empty_img" src={empty} alt="empty cart"/>
+                    <h3 className="wish_empty_title">Your wishlist is empty</h3>
+                </div>
+                
+                <hr/>
+                <div className="wish_footer">                
+                    <div className="cart_footer_buttons">
+                        <Link to="/" className="cart_footer_button_finish">Go Shopping!</Link>
+                    </div>                
+                </div>       
+                
             </div>
         )
     }
 
 
     return (
-        <div className="">
-            <h2 className="text-4xl">Your Wishlist</h2>
+        <div className="wish_section">
+            <h2 className="wish_title">MY WISHLIST</h2>
             <hr/>
-            <div>
+            <div className="wish_container">
             {
                 wish.map((prod) => <WishCard key={prod.id} item={prod}/>)
             }
             </div>
-            
-            <div>
-                <hr />
-                <button onClick={clearWish} className="btn btn-danger">Clear WishList</button>
-                {/* <Link className="btn btn-success mx-2" to="/checkout">Finish my purchase</Link> */}
+            <hr className="cart-wish-line"/>
+            <div className="wish_footer">                
+                <button onClick={clearWish} className="clear">Clear WishList</button>                
             </div>                        
         </div>
     )

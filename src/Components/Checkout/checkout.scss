@@ -1,0 +1,96 @@
+.checkout_section{
+    margin: 0 auto;
+    margin-block: 4rem;
+}
+
+.checkout_section hr{
+    margin: 0 auto;
+    width: 300px; 
+}
+
+.checkout_title{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.form_field{
+    padding: 5px;
+    padding-left: 20px;
+    border-radius: 10px;    
+    background-color: rgb(243, 243, 243);
+}
+
+.send{    
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-left: 20px;
+    padding: 10px 20px;
+    color: black;
+    border: none;    
+    background-color: rgb(77, 77, 77);
+    color: white;
+    font-size: 1rem;    
+    border-radius: 5px;
+    cursor: pointer;  
+}
+
+
+.succesfully-div{
+    text-align: center;
+    padding: 2.5rem;
+}
+
+.succesfully-text{
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.back-home_container{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+
+.back-home{
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    color: black;
+    border: none;    
+    background-color: rgb(209, 176, 157);
+    color: white;
+    font-size: 1rem;    
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+@media screen and (min-width: 768px) {
+    .checkout_section hr{
+        width: 600px;        
+    }
+
+    .form{        
+        width: 450px;        
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .checkout_section hr{
+        width: 800px;        
+    }
+
+    .form{        
+        width: 600px;        
+    }
+}

@@ -1,5 +1,4 @@
 
-import user from '../../assets/user.png'
 import { CartWidget } from '../CartWidget/CartWidget'
 import { Nav } from '../Nav/Nav'
 import './Header.scss'
@@ -11,12 +10,10 @@ import MGlassMenu from '../MGlassMenu/MGlassMenu';
 import { SearchContext } from '../../context/SearchContext';
 import { useContext } from "react"
 
-import { AuthContext } from '../../context/AuthContext'
-
 
 export const Header = () => {
   const { busqueda, setBusqueda, handleKeyDown } = useContext(SearchContext)
-  const { user, logout } = useContext(AuthContext)
+  
 
   return (
     <header className='header' >
@@ -29,14 +26,11 @@ export const Header = () => {
           <div className='magnifying-glass'>
               <HiMagnifyingGlass className='magnifying-glass_icon'/>              
               <div className="search items-left rounded-md border border-gray-300 ">                  
-                  <input onChange={(e) => setBusqueda(e.target.value)}
-        onKeyDown={handleKeyDown} type="text" className="w-full bg-transparent focus:outline-none px-2" placeholder="Search" id="buscar"/>
+                  <input value={busqueda} onChange={(e) => setBusqueda(e.target.value)} onKeyDown={handleKeyDown} type="text" className="w-full bg-transparent focus:outline-none px-2" placeholder="Search" id="buscar"/>
               </div>
           </div>          
           <Link className="" to="/wish"><AiOutlineHeart className='wishlist_icon'/></Link>          
-          <Link className="buttonss" to="/cart"><CartWidget/></Link>
-          {/* <p>Bienvenido: {user.email}</p>
-          <button className='btn btn-danger' onClick={logout}>Logout</button> */}
+          <Link className="buttonss" to="/cart"><CartWidget/></Link>          
         </div>                   
     </header>
   )

@@ -1,21 +1,31 @@
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
-import { FaTrashAlt } from 'react-icons/fa'
 import { Link } from "react-router-dom"
 import { toCapital } from '../../helpers/toCapital.js'
+import emptyCart from '../../assets/emptyCart.jpg'
 import './CartView.scss'
 
 
 
 const CartView = () => {
-    const { cart, totalCompra, vaciarCarrito, removerDelCarrito } = useContext(CartContext)
+    const { cart, totalCompra, removerDelCarrito, alertClearCart } = useContext(CartContext)
 
     if (cart.length === 0) {
         return (
-            <div className="container my-5">
-                <h2 className="text-4xl">Your cart is empty</h2>
+            <div className="cart_section">
+                <h2 className="cart_title">MY CART</h2>
                 <hr/>
-                <Link to="/" className="btn btn-success">Go Shopping!</Link>
+                <div className="cart_empty_section">
+                    <img className="cart_empty-cart_img" src={emptyCart} alt="empty cart"/>
+                    <h3 className="cart_empty_title">Your cart is empty</h3>
+                </div>
+                
+                <hr/>
+                <div className="cart_footer">                
+                    <div className="cart_footer_buttons">
+                        <Link to="/" className="cart_footer_button_finish">Go Shopping!</Link>
+                    </div>                
+                </div>                
             </div>
         )
     }
@@ -25,10 +35,10 @@ const CartView = () => {
         <div className="cart_section">
             <h2 className="cart_title">MY CART</h2>
             <hr/>
-            <div className="cart_container">
+            <div>
                 {cart.map((item) => (
                         <div className="cart_card" key={item.id + item.tamanioSeleccionado}>                            
-                            <img className="cart_img" src={item.img} alt={item.nombre}/>
+                            <Link to={`/detail/${item.id}`}><img className="cart_img" src={item.img} alt={item.nombre}/></Link>
                             <h3 className="cart-card_title">{toCapital(item.nombre)}</h3>
                             <p>Size: {item.tamanioSeleccionado}</p>
                             <p>Price: ${item.precioFinal}</p>
@@ -43,7 +53,7 @@ const CartView = () => {
             <div className="cart_footer">
                 <h4 className="cart_total">Total Cart: ${totalCompra()}</h4>
                 <div className="cart_footer_buttons">
-                    <button onClick={vaciarCarrito} className="clear">Clear Cart</button>
+                    <button onClick={alertClearCart} className="clear">Clear Cart</button>
                     <Link className="cart_footer_button_finish" to="/checkout">Buy</Link>
                 </div>                
             </div>               

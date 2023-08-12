@@ -9,4 +9,4 @@ MOCK_DATA.forEach(item => {
     addDoc(productosRef, item)
 })
 
-console.log(MOCK_DATA)
+/* console.log(MOCK_DATA) */

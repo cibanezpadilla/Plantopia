@@ -43,7 +43,7 @@ export const Categories = () => {
 }, [categoryId])
 
 
-console.log(categoryId)
+
 
 useEffect(() => {
 if (categoryId == undefined) {
@@ -65,9 +65,6 @@ if (categoryId == undefined) {
         <Link className={outdoor? "category_active" : ""} to="/products/outdoor">Outdoor</Link>
         <p className='slash'>/</p>
         <Link className={cactiesSucculents? "category_active" : ""} to="/products/cactiesSucculents">Cacties and Succulents</Link>
-        
-        
-             
     </div>    
   )
 }

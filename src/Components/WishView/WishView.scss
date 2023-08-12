@@ -1,11 +1,75 @@
-.wish_card{    
+.wish_section{
+    margin: 0 auto;
+    margin-block: 4rem;
+    margin-bottom: 6.5rem; 
+}
+
+.wish_title{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.wish_container{
+    margin: 0 auto;
+    display: grid;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.wish_section hr {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.wish_empty_section{
     padding: 2rem;
 }
 
-.wish-card_title{
-    font-size: 1.5rem;
+.wish_empty_img{
+    width: 250px;
+    margin: 0 auto;
 }
 
-.wish_img{
-    width: 120px;
+.wish_empty_title{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+
+
+.clear{
+    display: flex;
+    justify-self: center;
+    padding: 10px 20px;
+    color: black;
+    border: none;    
+    background-color: rgb(77, 77, 77);
+    color: white;
+    font-size: 1rem;    
+    border-radius: 5px;
+    cursor: pointer;  
+}
+
+.wish_footer{
+    display: flex;    
+    justify-content: center;
+    margin-top: 1rem;
+    
+}
+
+
+@media screen and (min-width: 768px) {
+    .wish_section hr {
+        width: 600px;        
+    }
+
+    .wish_empty_img{
+        width: 250px;        
+    }
+    
 }

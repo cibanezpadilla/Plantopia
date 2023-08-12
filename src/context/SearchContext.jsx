@@ -16,20 +16,26 @@ export const SearchProvider = ({children}) => {
         if (event.key === 'Enter') {
             navigate('/products/all');
             setTimeout(buscar, 0);
-            console.log("keydown")            
+            setBusqueda('')                       
         }
+      }
+
+      const handleClick = () => {        
+            navigate('/products/all');
+            setTimeout(buscar, 0);
+            setBusqueda('')        
       }
 
 
       const buscar = () => {
         const productosRef = collection(db, "productos")
-        /* console.log(productosRef) */        
+               
         let start = busqueda.toLocaleLowerCase();
         let end = (busqueda + "\uf8ff").toLowerCase(); // El carácter Unicode '\uf8ff' asegura que es mayor que cualquier carácter válido en Firebase
 
         let qu = query(productosRef, where('nombre', '>=', start), where('nombre', '<', end));
 
-        /* let qu= query(productosRef, where('nombre', 'in', busqueda) ) */
+        
         getDocs(qu)
             .then((resp) => {
                 const docs = resp.docs.map((doc) => {
@@ -43,8 +49,7 @@ export const SearchProvider = ({children}) => {
             })
             .catch(e => console.log(e))
             /* .finally(() => setLoading(false))   */   
-            console.log("buscar")
-            console.log(busqueda)   
+               
     }
 
     
@@ -53,10 +58,9 @@ export const SearchProvider = ({children}) => {
             busqueda,
             productos,
             setBusqueda,
-            setProductos,
-            /* navigate,
-            useNavigate, */
-            handleKeyDown,            
+            setProductos,            
+            handleKeyDown,
+            handleClick,            
         }}>
             {children}
         </SearchContext.Provider>

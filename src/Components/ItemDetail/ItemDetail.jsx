@@ -3,79 +3,47 @@ import { useContext, useEffect, useState } from "react"
 import ItemCount from "../ItemCount/ItemCount"
 import { CartContext } from "../../context/CartContext"
 import { WishContext } from "../../context/WishContext"
-/* import { Link } from "react-router-dom" */
 import { toCapital } from '../../helpers/toCapital.js'
 import { parseText } from '../../helpers/parseText.jsx'
 import SelectTamanio from "../SelectTamanio/SelectTamanio"
 import WishRemoveButton from "../WishRemoveButton/WishRemoveButton"
 import WishAddButton from "../WishAddButton/WishAddButton"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 
 const ItemDetail = ({item}) => {
 
-    const { agregarAlCarrito, cantidad, 
-        setCantidad,
-        tamanio, 
-        setTamanio,
-        multiplier, 
-        setMultiplier,
-        precio, 
-        setPrecio,
-        stock, 
-        setStock, nuevoMaxsegunTamanio, isInCartSegunTamanio, enCartsegunTamanio, setCart, cart } = useContext(CartContext)
-
-        const { wish, setWish, } = useContext(WishContext)
-
-        const [onWish, setOnWish] = useState(false)
+    const { wish, addToWish, removeFromWish } = useContext(WishContext)
+    const { agregarAlCarrito, cart, setCart, isInCartSegunTamanio, enCartsegunTamanio, nuevoMaxsegunTamanio} = useContext(CartContext)
 
 
-        useEffect(() => {
-            const result = wish.some((itemW) => itemW.id === item.id)
-            if (result){
-                setOnWish(true)
-            }
-            else {
-                setOnWish(false)
-            }
-        },[])
+    const [onWish, setOnWish] = useState(false)
 
 
-        const addToWish = () => {
-            setWish([...wish, item])
-            setOnWish(true)
-            console.log(wish.map((item)=> item.id))                 
-          }
-    
-          const removeFromWish = (id) => {
-            setWish(wish.filter((item) => item.id !== id) )
-            setOnWish(false)
-            console.log(wish.map((item)=> item.id))         
-        } 
-        
-        console.log(wish.map((item)=> item.id))
-
-        
-
-
-    /* const [cantidad, setCantidad] = useState(1)
+    const [cantidad, setCantidad] = useState(1)
     const [tamanio, setTamanio] = useState(null)
     const [multiplier, setMultiplier] = useState(1)
-    const [precio, setPrecio] = useState(item.precio)
-    const [stock, setStock] = useState(null) */
-
+    const [precio, setPrecio] = useState(item.precio) 
+    const [stock, setStock] = useState(null)
+  
     
-   
-/* 
-    const handleAgregar = () => {
-        const newItem = {
-            ...item,
-            cantidad
+
+
+    useEffect(() => {
+        const result = wish.some((itemW) => itemW.id === item.id)
+        if (result){
+            setOnWish(true)
         }
-        agregarAlCarrito(newItem)        
-        console.log("handleAgregar")
-    } */
+        else {
+            setOnWish(false)
+        }
+    },[])
+
+
+      
 
 
     const handleAgregar = () => {
@@ -84,85 +52,83 @@ const ItemDetail = ({item}) => {
           cantidad,
           precioFinal: precio,
           tamanioSeleccionado: tamanio
-        };
-      
-        
+        };      
+        toast('Product added to cart', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+
         const itemIndex = cart.findIndex((itemCart) => itemCart.id === newItem.id && itemCart.tamanioSeleccionado === newItem.tamanioSeleccionado);
-        
-      
+                
         if (itemIndex !== -1) {
-          // El elemento ya está en el carrito, actualizamos su cantidad y tambien actualizo tamanio
+          // El elemento ya está en el carrito, actualizo su cantidad
           const updatedCarrito = [...cart];
           updatedCarrito[itemIndex].cantidad += cantidad;          
           setCart(updatedCarrito);
-          setCantidad(1)
-          
+          setCantidad(1)          
         } else {
-          // El elemento no está en el carrito, lo agregamos
+          // El elemento no está en el carrito, lo agrego
           agregarAlCarrito(newItem);
-          setCantidad(1)
+          setCantidad(1)          
         }
       };
+
+
 
     useEffect(() => {
         setPrecio(item.precio * multiplier)
         setCantidad(1)
     },[multiplier])
 
-    
+
     
     
     
     return (
         <div className="detail_card">
             <img className="imgDetail" src={item.img} alt={item.nombre}/>
-            <div className="detail_info">
-                {onWish
-                        ? <WishRemoveButton handleRemoveFromWish={() => removeFromWish(item.id)}/>
-                        : <WishAddButton handleAddToWish ={addToWish}/>
-                }           
-                <h2 className="detail_titulo">{toCapital(item.nombre)}</h2>                               
-                {item && parseText(item.descripcion)}
-                <p className="detail_price">Price: ${precio}</p>                
-                <div className="buttons_section">
-                <SelectTamanio options={item.tamanios} setTamanio={setTamanio} setMultiplier={setMultiplier} setStock={setStock}/>
-                    {/* {
-                        isInCart(item.id)
-                            ? <div>
-                                <ItemCount 
-                                max={nuevoMax(item)}
-                                cantidad={cantidad}
-                                setCantidad={setCantidad}
-                                agregar={handleAgregar}/>
-                                <Link className="buttons" to="/cart">Terminar mi compra</Link>
-                            </div>
-                        
-                            : <ItemCount 
-                                max={nuevoMax(item)}
-                                cantidad={cantidad}
-                                setCantidad={setCantidad}
-                                agregar={handleAgregar}
-                            />
-                    } */}                    
-                    {
-                        nuevoMaxsegunTamanio(item) == 0
-                            ? <>
-                            <p>Product out of stock, check different sizes!</p>
-                            <p>You already have {enCartsegunTamanio(item)}{enCartsegunTamanio(item) > 1? " items" : " item"} in {tamanio} size of this product in cart</p>                            
-                            </>
-                            : <>
-                            <ItemCount className="botonera"                            
-                            max={nuevoMaxsegunTamanio(item)}
-                            cantidad={cantidad}
-                            setCantidad={setCantidad}
-                            agregar={handleAgregar}
-                            />
-                            {isInCartSegunTamanio(item.id)&& 
-                            <p>You already have {enCartsegunTamanio(item)}{enCartsegunTamanio(item) > 1? " items" : " item"} in {tamanio} size of this product in cart</p>} 
-                            </>
+            <div>
+                <div className="heart_container">
+                    {onWish
+                        ? <WishRemoveButton className='heart' handleRemoveFromWish={() => removeFromWish(item.id, setOnWish)}/>
+                        : <WishAddButton className='heart' handleAddToWish ={()=>addToWish(item, setOnWish)}/>
                     }
                 </div>
-            </div>            
+                
+                <div className="detail_info">                           
+                    <h2 className="detail_titulo">{toCapital(item.nombre)}</h2>                               
+                    {item && parseText(item.descripcion)}
+                    <p className="detail_price">Price: ${precio}</p>                
+                    <div className="buttons_section">
+                        <SelectTamanio className='select-det' options={item.tamanios} setTamanio={setTamanio} setMultiplier={setMultiplier} setStock={setStock}/>                        
+                        {
+                            nuevoMaxsegunTamanio(item, tamanio, stock) == 0
+                                ? <div>
+                                    <p className="check-dif-text">Product out of stock, check different sizes!</p>
+                                    {enCartsegunTamanio(item, tamanio) != 0 && <p className="you-have-text">You already have {enCartsegunTamanio(item, tamanio)}{enCartsegunTamanio(item, tamanio) > 1? " items" : " item"} in {tamanio} size of this product in cart</p>}
+                                </div>
+
+                                : <>
+                                    <ItemCount className="botonera"                            
+                                    max={nuevoMaxsegunTamanio(item, tamanio, stock)}
+                                    cantidad={cantidad}
+                                    setCantidad={setCantidad}
+                                    agregar={handleAgregar}
+                                    />
+                                    {isInCartSegunTamanio(item.id, tamanio)&& 
+                                    <p className="you-have-text">You already have {enCartsegunTamanio(item, tamanio)}{enCartsegunTamanio(item, tamanio) > 1? " items" : " item"} of this product in {tamanio} size in cart</p>} 
+                                </>
+                        }
+                    </div>
+                    <ToastContainer />
+                </div>
+            </div>                       
         </div>
     )
 }
@@ -170,28 +136,3 @@ const ItemDetail = ({item}) => {
 export default ItemDetail
 
 
-
-/* return (
-    <div className="detail_card">
-        <img className="imgDetail" src={item.img} alt={item.nombre}/>
-        <div className="detail_info">
-            <h2 className="detail_titulo">{item.nombre}</h2>            
-                           
-            {parseText(item.descripcion)}                
-            <p className="detail_price">Price: ${item.precio}</p>
-            
-            <div className="buttons_section">
-            {
-                isInCart(item.id)
-                    ? <Link className="buttons" to="/cart">Terminar mi compra</Link>
-                    : <ItemCount 
-                        max={item.stock}
-                        cantidad={cantidad}
-                        setCantidad={setCantidad}
-                        agregar={handleAgregar}
-                    />
-            }            
-            </div>
-        </div>            
-    </div>
-) */

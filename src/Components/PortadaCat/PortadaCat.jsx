@@ -2,7 +2,6 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './PortadaCat.scss'
-import { ProductNotFound } from '../ProductNotFound/ProductNotFound'
 
 
 
@@ -48,8 +47,8 @@ const PortadaCat = () => {
             setPortada( fotos.find(pic => pic.category === "all") )                            
         }
         
-, [categoryId])
-    }     
+    , [categoryId])
+        }     
     
 
     const estilos = {
@@ -57,15 +56,14 @@ const PortadaCat = () => {
         backgroundSize: 'cover',        
     }
    
+
+
     return (
         
         <div className=''>
             {portada && <div className="imgPort" style={estilos}>
-                            <h2 className='titulo_portada'>{portada.titulo}</h2>
-                            {/* <h2><span className='titulo_portada'>{portada.titulo}</span></h2> */}
-                        </div>} 
-            {/* {portada && <PortadaCate imagen={portada.img}/>} */}
-            
+                            <h2 className='titulo_portada'>{portada.titulo}</h2>                            
+                        </div>}                         
         </div>
     )
 }

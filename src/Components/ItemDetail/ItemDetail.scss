@@ -1,12 +1,5 @@
 
 
-
-
-
-
-
-
-
 .detail_card {
     margin: 0 auto;    
 }
@@ -16,47 +9,95 @@
     font-size: 1.5rem;
 }
 
-.imgDetail{    
+.imgDetail{
+    width: 350px;    
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    padding-inline: 1.5rem;
+}
+
+.heart_container{
+    width: 350px;
     padding: 1.5rem;
 }
+
+.heart{
+    display: grid;
+    justify-self: flex-end;
+    align-self: self-end;
+    justify-self: self-end;
+    text-align: end;
+}
+
 
 .detail_info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 2rem;
+    align-items: center;    
     padding-inline: 1.5rem;
     gap: 2rem;
     text-align: center;
 }
 
 .detail_price{
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
-/* .item_count{
+.buttons_section{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.select-detail{
+    margin: 0 auto;
+    padding: 8px;
+    padding-left: 20px;
+}
+
+.select-det{
+    margin-bottom: 30px;
+}
+
+.botonera{
+    margin:0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
-} */
+    margin-top: 10px;
+}
 
-.add {    
-    padding: 8px 20px;
+.item_count{
+    margin-top: 10px;
+}
+
+.button-count{    
+    padding: 8px 18px;
     color: black;
     border: none;    
-    background-color: rgb(209, 176, 157);
+    background-color: black;
     color: white;
     font-size: 1rem;    
     font-weight: 600;
     margin: 0 auto;
-    margin-inline: 10px;    
+    margin-inline: 5px;    
     border-radius: 5px;
     cursor: pointer;    
 }
+
+.count{
+    padding: 6px 18px;
+    color: black;
+    border: none;    
+    background-color: black;
+    color: white;
+    font-size: 1rem;    
+    font-weight: 600;
+    margin: 0 auto;    
+    border-radius: 5px;
+}
+
 
 .addToCart{    
     display: flex;
@@ -73,37 +114,27 @@
     cursor: pointer;  
 }
 
-/* .buttons_section{
-    margin:0 auto;
-    display: flex;
-    justify-content: center;
-} */
 
-.botonera{
-    margin:0 auto;
-    display: flex;
-    justify-content: center;
+
+
+.check-dif-text{
+    margin-top: 1rem;
 }
 
-.buttons {
-    
-    padding: 10px 20px;
-    color: black;
-    border: none;    
-    background-color: rgb(209, 176, 157);
-    color: white;
-    font-size: 1rem;    
-    margin: 0 auto;
-    /* margin-top: 800px; */
-    border-radius: 5px;
-    cursor: pointer;
+.you-have-text{
+    margin-top: 1rem;
+    font-size: 0.8rem;
 }
-
 
 @media screen and (min-width: 768px) {
     .imgDetail{
         width: 500px;  
         padding: 0;      
+    }
+
+    .heart_container{
+        width: 620px;
+        padding: 0;
     }
 
     .detail_info {        
@@ -121,10 +152,15 @@
     }
 
     .imgDetail{
-        width: 350px;        
+        width: 100%;        
+    }
+
+    .heart_container{
+        width: 100%;
+        padding-inline: 2rem;
     }
 
     .detail_info {
-        padding: 2rem;
+        padding-inline: 2rem; 
     }
 }

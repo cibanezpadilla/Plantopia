@@ -1,6 +1,5 @@
 import { BsChevronDown } from 'react-icons/bs'
 import './CategoriesMenu.scss'
-/* import MenuList from './MenuList' */
 import { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -62,10 +61,7 @@ const CategoriesMenu = () => {
         setShowMenuCat(!showMenuCat)
     }
 
-    /* const handleCloseCat = () => {
-        setShowMenuCat(false)
-    } */
-
+    
     return (
         <div className='div_cat_menu'> 
             <div onClick={openClose} className='cat_menu cursor-pointer'>
@@ -77,10 +73,8 @@ const CategoriesMenu = () => {
                 <Link className={all? "category_active block" : "block"} to="/products/all">All</Link>            
                 <Link className={indoor? "category_active block" : "block"} to="/products/indoor">Indoor</Link>          
                 <Link className={outdoor? "category_active block" : "block"} to="/products/outdoor">Outdoor</Link>           
-                <Link className={cactiesSucculents? "category_active block" : "block"} to="/products/cactiesSucculents">Cacties and Succulents</Link>
-            
-            </div>}
-            
+                <Link className={cactiesSucculents? "category_active block" : "block"} to="/products/cactiesSucculents">Cacties and Succulents</Link>            
+            </div>}            
         </div>
     )
 }

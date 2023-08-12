@@ -1,4 +1,5 @@
 import { createContext,  useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 
 export const CartContext = createContext()
 
@@ -6,54 +7,50 @@ export const CartContext = createContext()
 const init = JSON.parse(localStorage.getItem('cart')) || []
 
 export const CartProvider = ({children}) => {
+
     const [cart, setCart] = useState(init)
 
-    const [cantidad, setCantidad] = useState(1)
-    const [tamanio, setTamanio] = useState(null)
-    const [multiplier, setMultiplier] = useState(1)
-    const [precio, setPrecio] = useState(null) /* aca le saco el item.precio */
-    const [stock, setStock] = useState(null)
     
-
     const agregarAlCarrito = (item) => {
       setCart([...cart, item])           
     }
 
-   
+
+    /* verifico si un item ya está en el carrito o no segun id y tamaño */
+    const isInCartSegunTamanio = (id, tamanio) => {
+      return cart.some((item) => item.id === id && item.tamanioSeleccionado === tamanio)
+    }
 
 
-    const isInCartSegunTamanio = (id) => {
-        return cart.some((item) => item.id === id && item.tamanioSeleccionado === tamanio)
+    /* obtengo la cantidad de un item en el carrito segun id y tamaño */
+    const enCartsegunTamanio = (item, tamanio) => {
+      const itemInd = cart.findIndex((itemCart) => itemCart.id === item.id && itemCart.tamanioSeleccionado === tamanio);
+      if (itemInd !== -1) {
+          return cart[itemInd].cantidad
       }
-
-    const enCartsegunTamanio = (item) => {
-        const itemInd = cart.findIndex((itemCart) => itemCart.id === item.id && itemCart.tamanioSeleccionado === tamanio);
-        if (itemInd !== -1) {
-            return cart[itemInd].cantidad
-        }
-        else{
-            return 0
-        }
-    }
-
-    const nuevoMaxsegunTamanio = (item) => {
-        const itemIndx = cart.findIndex((itemCart) => itemCart.id === item.id && itemCart.tamanioSeleccionado === tamanio);          
-          if (itemIndx !== -1) {
-            return (stock - cart[itemIndx].cantidad)
-          }else {
-            return (stock)
-        }
+      else{
+          return 0
+      }
     }
 
 
-    const totalStock = (item) => {
-        const sizesInCart = cart.filter((itemCart) => itemCart.id === item.id);
-        const totStock= sizesInCart.reduce((acc, item) => acc + item.cantidad, 0)
+    /* obtengo la cantidad máxima seleccionable actualizada, restando el stock menos la cantidad en carrito para ese id y tamaño */
+    const nuevoMaxsegunTamanio = (item, tamanio, stock) => {
+      const itemIndx = cart.findIndex((itemCart) => itemCart.id === item.id && itemCart.tamanioSeleccionado === tamanio);          
+        if (itemIndx !== -1) {
+          return (stock - cart[itemIndx].cantidad)
+        }else {
+          return (stock)
+      }
+  }
+
+
+    const totalStock = (item) => {        
         let sumaStock = 0;
         for (const tamano of item.tamanios) {
             sumaStock += tamano.stock;
         }
-        return (sumaStock - totStock)        
+        return sumaStock        
     }
 
     
@@ -62,16 +59,44 @@ export const CartProvider = ({children}) => {
         setCart( cart.filter((item) => item.id !== id || item.tamanioSeleccionado !== tamano))
     } 
   
-    const isInCart = (id) => {
-      return cart.some((item) => item.id === id)
-    }
-
+    
     const totalCompra = () => {
         return cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0)
     }
 
     const totalCantidad = () => {
         return cart.reduce((acc, item) => acc + item.cantidad, 0)
+    }
+
+
+    /* funcion que dispara alerta antes de vaciar carrito */
+    const alertClearCart = () => {
+        Swal.fire({
+            title: "Are you sure you want to empty the cart?",
+            text: `You have ${totalCantidad()} ${
+              totalCantidad() > 1 ? "items" : "item"
+            } in your cart`,
+            icon: "warning",
+            iconColor: "#E2B2AE",
+            showDenyButton: true,
+            confirmButtonText: "Accept",
+            confirmButtonColor: "#353b41",
+            denyButtonText: `Cancel`,
+            denyButtonColor: "#ce9b97",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                icon: "success",
+                iconColor: "#E2B2AE",
+                text: `Cart emptied. ${totalCantidad()} ${
+                  totalCantidad() > 1 ? "items were " : "item was"
+                } removed.`,
+                confirmButtonText: "Accept",
+                confirmButtonColor: "#000000",
+              });
+              vaciarCarrito();
+            }
+          });
     }
 
     const vaciarCarrito = () => {
@@ -88,23 +113,13 @@ export const CartProvider = ({children}) => {
         <CartContext.Provider value={{
             cart,
             setCart,
-            totalStock,            
-            cantidad, 
-            setCantidad,
-            tamanio, 
-            setTamanio,
-            multiplier, 
-            setMultiplier,
-            precio, 
-            setPrecio,
-            stock, 
-            setStock,
-            agregarAlCarrito,
             isInCartSegunTamanio,
             enCartsegunTamanio,
             nuevoMaxsegunTamanio,
-            isInCart,
+            totalStock,            
+            agregarAlCarrito,            
             totalCompra,
+            alertClearCart,
             vaciarCarrito,
             totalCantidad,
             removerDelCarrito
@@ -113,50 +128,3 @@ export const CartProvider = ({children}) => {
         </CartContext.Provider>
     )
 }
-
-
-
-
-/* ****************************************************************** */
-
-
-/* PUEDO ESCRIBIR ESTA FUNCION PARA NO REPETIR CODIGO
-    const itemIndx = (item) => {
-        return cart.findIndex((itemCart) => itemCart.id === item.id);
-      } */
-
-
-
-     /* a enCart no necesito pasarle el parametro item si lo dejo en ItemDetail
-    pero sí necesito pasarselo si lo guardo en CartContext*/
-
-   /*  const enCart = (item) => {
-        const itemInd = cart.findIndex((itemCart) => itemCart.id === item.id);
-        if (itemInd !== -1) {
-            return cart[itemInd].cantidad
-        }
-    } */
-
-
-
-    /* a nuevoMax no necesito pasarle el parametro item si lo dejo en ItemDetail, pero sí necesito pasarselo si lo guardo en CartContext */
-
-    /* const nuevoMax = (item) => {
-        const itemIndx = cart.findIndex((itemCart) => itemCart.id === item.id);          
-          if (itemIndx !== -1) {
-            return (item.stock - cart[itemIndx].cantidad)
-          }else {
-            return (item.stock)
-        }
-    } */
-
-
-    /* ESTA ES LA VERSION DE NUEVO MAX USANDO  LA FUNCION ITEMINDX PARA NO REPETIR UNA LINEA DE CODIGO
-    const nuevoMax = (item) => {        
-        itemIndx(item)     
-          if (itemIndx(item) !== -1) {
-            return (item.stock - cart[itemIndx(item)].cantidad)
-          }else {
-            return (item.stock)
-        }
-    } */

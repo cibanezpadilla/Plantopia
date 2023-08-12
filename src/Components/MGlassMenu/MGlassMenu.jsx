@@ -5,10 +5,14 @@ import { IoMdClose } from 'react-icons/io'
 import './MGlassMenu.scss'
 /* import MenuList from './MenuList' */
 import { useState} from 'react'
+import { SearchContext } from '../../context/SearchContext';
+import { useContext } from "react"
 
 
 const MGlassMenu = () => {
     const [showMGlass, setShowMGlass] = useState(false)
+
+    const { busqueda, setBusqueda, handleClick } = useContext(SearchContext)
 
     const handleOpenMG = () => {
         setShowMGlass(true)
@@ -16,6 +20,11 @@ const MGlassMenu = () => {
 
     const handleCloseMG = () => {
         setShowMGlass(false)
+    }
+
+    const handleClickandClose = () => {
+        handleClick()
+        handleCloseMG()        
     }
 
     return (
@@ -29,9 +38,9 @@ const MGlassMenu = () => {
                     <IoMdClose onClick={handleCloseMG} className='mg_menulist_close_icon cursor-pointer'/>
                     <div className='mg_row'>
                         <div className="mg_search items-left rounded-md border border-gray-300 ">                  
-                            <input type="text" className="w-full bg-transparent focus:outline-none px-2" placeholder="Search" id="buscar"/>
+                            <input value={busqueda} onChange={(e) => setBusqueda(e.target.value)} type="text" className="w-full bg-transparent focus:outline-none px-2" placeholder="Search" id="buscar"/>
                         </div>
-                        <HiMagnifyingGlass onClick={handleCloseMG} className="mg_menulist__link" to="/"/>
+                        <HiMagnifyingGlass onClick={handleClickandClose} className="mg_menulist__link" to="/"/>
                     </div>
                 </div>
 

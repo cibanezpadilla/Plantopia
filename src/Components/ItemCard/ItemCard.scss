@@ -1,13 +1,21 @@
 
-.tarjetita {
-    /* width: 300px;
-    overflow: hidden;
-    border: solid 1px rgb(163, 163, 163);
-    border-radius: 15px;   */
+.tarjetita {    
     text-align: center;  
     margin-bottom: 50px;
     padding: 1.5rem;
     
+}
+
+.card_title-fav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3px;
+}
+
+
+.card_price{
+    text-align: start;
 }
 
 .contenedor-img-out{
@@ -24,8 +32,7 @@
 
 .out-of-stock_bg{
     position: absolute;
-    width: 100%;
-    /* bottom: 150px; */
+    width: 100%;    
     height: 100%;
     background-color: rgb(255, 255, 255, 0.65);
     display: flex;
@@ -44,16 +51,19 @@
 
 }
 
-.more_details {
-    
-    padding: 10px 20px;
+.card_line{
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+.more_details {    
+    padding: 6px 20px;
     color: black;
     border: none;    
-    background-color: rgb(209, 176, 157);
+    background-color:black;
     color: white;
     font-size: 1rem;    
-    margin: 0 auto;
-    /* margin-top: 800px; */
+    margin: 0 auto;    
     border-radius: 5px;
     cursor: pointer;
 }

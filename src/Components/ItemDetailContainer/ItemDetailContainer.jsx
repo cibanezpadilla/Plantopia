@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { pedirDatos } from "../../helpers/pedirDatos"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import "./ItemDetailContainer.scss"
@@ -19,11 +18,9 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-
-        //1- armar la ref
-        const itemRef = doc(db, "productos", itemId)
         
-        //2- llamar la ref
+        const itemRef = doc(db, "productos", itemId)        
+       
         getDoc(itemRef)
             .then((doc) => {
                 setItem({
@@ -37,7 +34,8 @@ const ItemDetailContainer = () => {
     }, [])
 
 
-    console.log(item)
+    
+
     if (item) {
         if (item.descripcion == undefined) {
             return (
@@ -46,9 +44,10 @@ const ItemDetailContainer = () => {
         }
     }
 
+
+
     return (
-        <div className="container detail_container">
-            
+        <div className="container detail_container">            
             {
                 loading
                     ? <h2>Loading...</h2>
@@ -57,5 +56,6 @@ const ItemDetailContainer = () => {
         </div>
     )
 }
+
 
 export default ItemDetailContainer

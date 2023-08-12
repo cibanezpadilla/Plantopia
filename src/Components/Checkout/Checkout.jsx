@@ -6,23 +6,34 @@ import { Link, Navigate } from "react-router-dom"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from 'yup'
 import './Checkout.scss'
+import Swal from 'sweetalert2'
+
 
 
 const schema = Yup.object().shape({
     nombre: Yup.string()
-                .min(3, "El nombre es demasiado corto")
-                .max(20, "Máximo 20 caracteres")
-                .required("Este campo es obligatorio"),
+                .min(3, "The name is too short")
+                .max(20, "Maximum 20 characters")
+                .required("This field is mandatory"),
+    apellido: Yup.string()
+                .min(3, "The surname is too short")
+                .max(20, "Maximum 20 characters")
+                .required("This field is mandatory"),
+    telefono: Yup.string()
+                .min(3, "The phone number is too short")
+                .max(20, "The phone number is too long")
+                .matches(/^[0-9]+$/, 'The phone number can only contain numerical digits')
+                .required("This field is mandatory"),
     direccion: Yup.string()
                 .min(6, "La direccion es demasiado corta")
-                .max(20, "Máximo 20 caracteres")
-                .required("Este campo es obligatorio"),
+                .max(20, "Maximum 20 characters")
+                .required("This field is mandatory"),
     email: Yup.string()
-                .required("Este campo es obligatorio")
-                .email("El email es inválido"),
+                .required("This field is mandatory")
+                .email("Invalid email"),
     email2: Yup.string()
-                .oneOf([Yup.ref('email'), null], 'Las contraseñas no coinciden')
-                .required('Este campo es requerido'),
+                .oneOf([Yup.ref('email'), null], 'Emails do not match')
+                .required('This field is mandatory'),
                 
 })
 
@@ -35,9 +46,7 @@ const Checkout = () => {
 
     const handleSubmit = async (values) => {
         setLoading(true)
-        // validaciones de formulario
-        // if (!validaciones) return
-
+       
         const orden = {
             cliente: values,
             items: cart.map(item => ({id: item.id, precio: item.precio, cantidad: item.cantidad, tamanio: item.tamanioSeleccionado, nombre: item.nombre})),
@@ -83,25 +92,50 @@ const Checkout = () => {
 
             vaciarCarrito()
             setOrderId(doc.id)
+
+            Swal.fire({
+                icon: "success",
+                title: "Successful purchase!",
+                text: `Thank you, ${values.nombre}, for shopping at Plantopia! We will keep in touch with you at ${values.email}`,
+                iconColor: "#E2B2AE",
+                confirmButtonText: "Accept",
+                confirmButtonColor: "#000000",
+              });
+
         } else {
-            alert("Hay items sin stock")
-            console.log(outOfStock)
+            Swal.fire({
+                title: "Warning!",
+                text: "There are items out of stock",
+                icon: "warning",
+                iconColor: "#E2B2AE",
+                confirmButtonText: "Accept",
+                confirmButtonColor: "#000000",
+              });            
         }
        
         setLoading(false)
     }
 
-    if (orderId) {
-        return (
-            <div className="container my-5">
-                <h2 className="text-4xl">Your purchase was successfully registered!</h2>
-                <hr/>
-                <p>Your order number is: <strong>{orderId}</strong></p>
 
-                <Link to="/">Back Home</Link>
+
+    if (orderId) { 
+        return (
+            <div className="checkout_section">
+                <h2 className="checkout_title">CHECKOUT</h2>
+                <hr/>
+                <div className="succesfully-div">
+                    <h2 className="succesfully-text">Your purchase was successfully registered!</h2>                
+                    <p className="succesfully-order">Your order number is: <strong>{orderId}</strong></p>                    
+                </div>
+                <hr />
+                <div className="back-home_container">
+                    <Link to="/" className="back-home">Back Home</Link>   
+                </div>
+                             
             </div>
-        )
+        )        
     }
+    
 
     if (cart.length === 0 ) {
         return <Navigate to="/"/>
@@ -112,8 +146,8 @@ const Checkout = () => {
 
     
     return (
-        <div className="container my-5">
-            <h2>Checkout</h2>
+        <div className="checkout_section">
+            <h2 className="checkout_title">CHECKOUT</h2>
             <hr/>
 
             <Formik
@@ -127,16 +161,20 @@ const Checkout = () => {
                 validationSchema={schema}
             >
                 {() => (
-                    <Form>
-                        <Field placeholder="Tu nombre" className="form-control my-2" type="text" name="nombre"/>
+                    <Form className="form">
+                        <Field placeholder="Name" className="form_field mt-6" type="text" name="nombre"/>
                         <ErrorMessage name="nombre" component="p"/>
-                        <Field placeholder="Tu direccion" className="form-control my-2" type="text" name="direccion"/>
+                        <Field placeholder="Surname" className="form_field mt-6" type="text" name="apellido"/>
+                        <ErrorMessage name="apellido" component="p"/>
+                        <Field placeholder="Phone" className="form_field mt-6" type="text" name="telefono"/>
+                        <ErrorMessage name="telefono" component="p"/>
+                        <Field placeholder="Address" className="form_field mt-6" type="text" name="direccion"/>
                         <ErrorMessage name="direccion" component="p"/>
-                        <Field placeholder="Tu email" className="form-control my-2" type="email" name="email"/>
+                        <Field placeholder="Email" className="form_field mt-6" type="email" name="email"/>
                         <ErrorMessage name="email" component="p"/>
-                        <Field placeholder="Confirm your email" className="form-control my-2" type="email" name="email2"/>
+                        <Field placeholder="Confirm your email" className="form_field mt-6" type="email" name="email2"/>
                         <ErrorMessage name="email2" component="p"/>
-                        <button type="submit" className="btn btn-success" disabled={loading}>Enviar</button>
+                        <button type="submit" className="send" disabled={loading}>Send</button>
                     </Form>
                 )}
             </Formik>

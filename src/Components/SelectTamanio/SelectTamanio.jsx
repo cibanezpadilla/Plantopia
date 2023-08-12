@@ -6,8 +6,7 @@ import { useEffect } from "react"
 const SelectTamanio = ({options, setTamanio, setMultiplier, setStock}) => {
 
     const handleSelect = (e) => {
-        const option = options.find(op => op.value === e.target.value)
-        console.log(option)
+        const option = options.find(op => op.value === e.target.value)        
         setTamanio(option.value)
         setMultiplier(option.multiplier)
         setStock(option.stock)
@@ -20,8 +19,11 @@ const SelectTamanio = ({options, setTamanio, setMultiplier, setStock}) => {
         setStock(option.stock)
     }, [])
 
+
+
+    
     return (
-        <select onChange={handleSelect}>
+        <select className="select-wish select-detail" onChange={handleSelect}>
             {
                 options.map(opt => <option value={opt.value} key={opt.value}>{opt.value}</option>)
             }

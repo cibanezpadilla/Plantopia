@@ -11,9 +11,9 @@ const ItemCount = ({max, cantidad, setCantidad, agregar}) => {
 
     return (
         <div className="item_count">
-            <button onClick={handleRestar} className="add">-</button>
-            <span className="mx-2">{cantidad}</span>
-            <button onClick={handleSumar} className="add">+</button>
+            <button onClick={handleRestar} className="button-count">-</button>
+            <span className="count">{cantidad}</span>
+            <button onClick={handleSumar} className="button-count">+</button>
             <br/>
             <button onClick={agregar} className="addToCart">Add to Cart</button>
 
